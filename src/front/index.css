@@ -40,14 +40,14 @@
 
 .modal-buttons {
   display: flex;
-  justify-content: center;  /* centrados */
-  gap: 10px;                /* espacio entre ellos reducido */
-  margin-top: 20px;         /* separacion del contenido del modal */
+  justify-content: center;  
+  gap: 10px;                
+  margin-top: 20px;        
 }
 
 .modal-buttons button {
-  padding: 12px 25px;       /* más grandes */
-  font-size: 16px;           /* letra más grande */
+  padding: 12px 25px;       
+  font-size: 16px;           
   border: none;
   border-radius: 5px;
   cursor: pointer;
