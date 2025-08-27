@@ -2,8 +2,44 @@ import React, { useEffect } from "react"
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 
-export const Home = () => {
 
+
+export const Home = () => {
+  return (
+    <div className="d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
+      <img 
+        src={rigoImageUrl} 
+        alt="Imagen principal" 
+        className="mb-4 img-fluid rounded" 
+        style={{ maxWidth: "300px" }}
+      />
+      <h1 className="mb-4">Bienvenido a Tasky</h1>
+
+      <div className="d-flex gap-3">
+        <button className="btn btn-primary btn-lg">Iniciar Sesión</button>
+        <button className="btn btn-secondary btn-lg">Registrarse</button>
+      </div>
+    </div>
+  );
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 	const { store, dispatch } = useGlobalReducer()
 
 	const loadMessage = async () => {
@@ -48,5 +84,5 @@ export const Home = () => {
 				)}
 			</div>
 		</div>
-	);
-}; 
+	);*/
+ 
