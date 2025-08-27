@@ -11,6 +11,7 @@ import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
 import { NewTask } from "./pages/NewTask";
 import { Admin } from "./pages/Admin";
+import  MyOffers  from "./components/MyOffers"
 
 export const router = createBrowserRouter(
     createRoutesFromElements(
@@ -29,6 +30,7 @@ export const router = createBrowserRouter(
         <Route path="/demo" element={<Demo />} />
         <Route path="/newtask" element={<NewTask />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/myoffers" element={<MyOffers />} />
       </Route>
     )
 );

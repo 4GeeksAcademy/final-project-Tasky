@@ -1,0 +1,69 @@
+.offers-container {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;    
+  gap: 20px;              
+}
+
+.offer-card {
+  background-color: #fff;
+  width: 70%;             
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.offer-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;  /* centrados */
+  gap: 10px;                /* espacio entre ellos reducido */
+  margin-top: 20px;         /* separacion del contenido del modal */
+}
+
+.modal-buttons button {
+  padding: 12px 25px;       /* más grandes */
+  font-size: 16px;           /* letra más grande */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.modal-buttons button.accept {
+  background-color: #4caf50;
+  color: white;
+}
+
+.modal-buttons button.reject {
+  background-color: #f44336;
+  color: white;
+}
+
+.modal-buttons button:hover {
+  opacity: 0.9;
+}
