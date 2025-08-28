@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import useGlobalReducer from "../hooks/useGlobalReducer";  // Custom hook for accessing the global state.
+//import { useGlobalReducer } from "../hooks/useGlobalReducer";  // Custom hook for accessing the global state.
 
 export const NewTask = () => {
     // Access the global state and dispatch function using the useGlobalReducer hook.
-    const { store, dispatch } = useGlobalReducer()
+    //    const { store, dispatch } = useGlobalReducer()
 
     return (
         <div className="container">
@@ -27,15 +27,15 @@ export const NewTask = () => {
                     <div className="row ">
                         <div className="col-5">
                             <label for="inputPassword2" class="visually-hidden">Ciudad</label>
-                            <input type="password" class="form-control" id="inputPassword2" placeholder="Ciudad"/>
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="Ciudad" />
                         </div>
                         <div className="col-3">
                             <label for="inputPassword2" class="visually-hidden">Código Postal</label>
-                            <input type="password" class="form-control" id="inputPassword2" placeholder="CP"/>
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="CP" />
                         </div>
                         <div className="col-4">
                             <label for="inputPassword2" class="visually-hidden">País</label>
-                            <input type="password" class="form-control" id="inputPassword2" placeholder="País"/>
+                            <input type="password" class="form-control" id="inputPassword2" placeholder="País" />
                         </div>
                     </div>
                 </div>

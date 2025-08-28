@@ -149,6 +149,12 @@ class Task(db.Model):
         return {
             "id": self.id,
             "title": self.title,
+            "description": self.description,
+            "location": self.location,
+            "price": float(self.price) if self.price is not None else None,
+            "due_at": self.due_at.isoformat() if self.due_at else None,
+            "status": self.status,
+            "posted_at": self.posted_at.isoformat() if self.posted_at else None
         }
 
     def serialize_all_data(self):
@@ -192,6 +198,8 @@ class TaskOffered(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     # the values will be defined in the business layer(app.py)
     status = db.Column(db.Numeric(10, 2), nullable=True)
+    message = db.Column(db.Text, nullable=True)
+
     # dates
     created_at = db.Column(
         db.Date, nullable=False, server_default=func.current_date())
@@ -220,6 +228,7 @@ class TaskOffered(db.Model):
             "task_id": self.task_id,
             "tasker_id": self.tasker_id,
             "status": float(self.status) if self.status is not None else None,
+            "message": self.message,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),
         }
@@ -312,8 +321,8 @@ class Review(db.Model):
         return {
             "id": self.id,
             "review": self.review,
-            "rate": self.rate,
-            "created_at": self.created_at,
+            "rate": float(self.rate) if self.rate is not None else None,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
             "worker_id": self.worker_id,
             "task_id": self.task_id,
         }
@@ -325,7 +334,7 @@ class Message(db.Model):
     created_at = db.Column(db.DateTime(timezone=True),
                            server_default=func.current_timestamp())
     dealer_id = db.Column(db.Integer, ForeignKey(
-        'task_dealed.id'), unique=True, nullable=False)
+        'task_dealed.id'), nullable=False)
     sender_id = db.Column(db.Integer, ForeignKey(
         'user.id'), nullable=False)
     user = db.relationship('User', back_populates='messages')
@@ -334,7 +343,7 @@ class Message(db.Model):
         return {
             "id": self.id,
             "body": self.body,
-            "created_at": self.created_at,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
             "dealer_id": self.dealer_id,
             "sender_id": self.sender_id,
         }
