@@ -9,23 +9,23 @@ import { GoogleOAuthProvider } from "@react-oauth/google"
 
 const Main = () => {
   if (!import.meta.env.VITE_BACKEND_URL || import.meta.env.VITE_BACKEND_URL == "")
-      return (
-            <React.StrictMode>
-                    <BackendURL />
-                          </React.StrictMode>
-                              )
+    return (
+      <React.StrictMode>
+        <BackendURL />
+      </React.StrictMode>
+    )
 
-                                const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || ""
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID || ""
 
-                                  return (
-                                      <React.StrictMode>
-                                            <GoogleOAuthProvider clientId={googleClientId}>
-                                                    <StoreProvider>
-                                                              <RouterProvider router={router} />
-                                                                      </StoreProvider>
-                                                                            </GoogleOAuthProvider>
-                                                                                </React.StrictMode>
-                                                                                  )
-                                                                                  }
+  return (
+    <React.StrictMode>
+      {/* <GoogleOAuthProvider clientId={googleClientId}> */}
+      <StoreProvider>
+        <RouterProvider router={router} />
+      </StoreProvider>
+      {/* </GoogleOAuthProvider> */}
+    </React.StrictMode>
+  )
+}
 
-                                                                                  ReactDOM.createRoot(document.getElementById("root")).render(<Main />)
+ReactDOM.createRoot(document.getElementById("root")).render(<Main />)

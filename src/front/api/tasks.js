@@ -16,13 +16,18 @@ export async function getTask(id) {
 }
 
 // GET /api/users/:user_id/tasks
-export async function getTasksByUser(userId, { status, from_date, to_date } = {}) {
+export async function getTasksByUser(
+  userId,
+  { status, from_date, to_date } = {}
+) {
   const qs = new URLSearchParams();
   if (status) qs.set("status", status);
   if (from_date) qs.set("from_date", from_date);
   if (to_date) qs.set("to_date", to_date);
 
-  const url = `${BASE}/api/users/${userId}/tasks${qs.toString() ? `?${qs}` : ""}`;
+  const url = `${BASE}/api/users/${userId}/tasks${
+    qs.toString() ? `?${qs}` : ""
+  }`;
   const res = await fetch(url);
   if (!res.ok) throw new Error(await res.text());
   return res.json();

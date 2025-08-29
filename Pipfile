@@ -19,13 +19,7 @@ flask-jwt-extended = "*"
 flask-migrate = "*"
 flask-sqlalchemy = "*"
 sqlalchemy = "*"
-<<<<<<< HEAD
-requests = "*"
-google-auth = "*"
-google-auth-oauthlib = "*"
-=======
 flask = "*"
->>>>>>> main
 
 [requires]
 python_version = "3.13"

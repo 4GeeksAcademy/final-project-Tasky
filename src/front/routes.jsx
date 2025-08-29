@@ -13,6 +13,7 @@ import ProfilePublic from "./pages/ProfilePublic";
 import AuthCallback from "./pages/AuthCallback";
 import Browse from "./pages/Browse";
 import PostTask from "./pages/PostTask";
+import TaskDetail from "./pages/TaskDetail";
 
 // Páginas que ya traía el repo
 import Single from "./pages/Single";
@@ -60,6 +61,8 @@ export const router = createBrowserRouter([
         children: [
           { path: "/account", element: <ProfilePrivate /> },
           { path: "/profile", element: <Profile /> },
+          { path: "/tasks/:taskId", element: <TaskDetail /> },
+
         ],
       },
 
