@@ -32,7 +32,7 @@ export default function NewTask() {
       ? task.categories.join(", ")
       : "Selecciona la categoría de tu tarea";
 
-  const toggleCategory = (categoryName: string) => {
+  const toggleCategory = (categoryName) => {
     const updated = catList.map((c) =>
       c.name === categoryName ? { ...c, checked: !c.checked } : c
     );
