@@ -197,8 +197,8 @@ class TaskOffered(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     # the values will be defined in the business layer(app.py)
-    status = db.Column(db.Numeric(10, 2), nullable=True)
-    message = db.Column(db.Text, nullable=True)
+    status = db.Column(db.String(20), nullable=False)
+    message = db.Column(db.String(50), nullable=True)
 
     # dates
     created_at = db.Column(
@@ -227,7 +227,7 @@ class TaskOffered(db.Model):
             "id": self.id,
             "task_id": self.task_id,
             "tasker_id": self.tasker_id,
-            "status": float(self.status) if self.status is not None else None,
+            "status": self.status,
             "message": self.message,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),

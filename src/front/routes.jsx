@@ -1,27 +1,34 @@
-// src/front/routes.jsx
-import React from "react";
-import { createBrowserRouter, Navigate } from "react-router-dom";
+// Import necessary components and functions from react-router-dom.
 
-// Only the pages you want RIGHT NOW
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import Login from "./pages/Login";
-import TaskDetail from "./pages/TaskDetail";
+import {
+    createBrowserRouter,
+    createRoutesFromElements,
+    Route,
+} from "react-router-dom";
+import { Layout } from "./pages/Layout";
+import { Home } from "./pages/Home";
+import { Single } from "./pages/Single";
+import { Demo } from "./pages/Demo";
+import { NewTask } from "./pages/NewTask";
+import { Admin } from "./pages/Admin";
 
+export const router = createBrowserRouter(
+    createRoutesFromElements(
+    // CreateRoutesFromElements function allows you to build route elements declaratively.
+    // Create your routes here, if you want to keep the Navbar and Footer in all views, add your new routes inside the containing Route.
+    // Root, on the contrary, create a sister Route, if you have doubts, try it!
+    // Note: keep in mind that errorElement will be the default page when you don't get a route, customize that page to make your project more attractive.
+    // Note: The child paths of the Layout element replace the Outlet component with the elements contained in the "element" attribute of these child paths.
 
-// === DEMO SWITCHES (pon en false cuando conectes backend real) ===
-const DEMO = true;
-const DEMO_USER = { id: 10, role: "client" }; // cliente demo
+      // Root Route: All navigation will start from here.
+      <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 
-export const router = createBrowserRouter([
-  {
-    element: <Layout />,
-    children: [
-      { path: "/", element: <Home /> },
-      { path: "/login", element: <Login /> },
-      { path: "/tasks/:taskId", element: <TaskDetail user={DEMO ? DEMO_USER : null} demo={DEMO} /> },
-      // Catch-all so bad routes don’t crash
-      { path: "*", element: <Navigate to="/" replace /> },
-    ],
-  },
-]);
+        {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
+        <Route path= "/" element={<Home />} />
+        <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
+        <Route path="/demo" element={<Demo />} />
+        <Route path="/newtask" element={<NewTask />} />
+        <Route path="/admin" element={<Admin />} />
+      </Route>
+    )
+);
